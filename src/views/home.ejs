@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md text-center">
+
+    <h1 class="text-3xl text-white semibold mb-6">
+      Welcome, <%= username ? username : 'User' %>!
+    </h1>
+
+    <form method="GET" action="/api/v1/auth/logout">
+      <button 
+        type="submit"
+        class="w-full bg-teal-500 hover:bg-teal-600 text-white semibold py-2 rounded transition duration-200"
+      >
+        Logout
+      </button>
+    </form>
+
+  </div>
+
+</body>
+</html>

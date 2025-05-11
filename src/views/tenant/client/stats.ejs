@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Stats</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+<div class="w-full max-w-2xl p-8 space-y-6 bg-white rounded-lg shadow-lg">
+  <h1 class="text-2xl font-bold text-center">Client Stats</h1>
+
+  <div class="space-y-4">
+    <div><strong>ID:</strong> <%= client.id %></div>
+    <div><strong>Name:</strong> <%= client.name %></div>
+    <div><strong>Email:</strong> <%= client.email %></div>
+    <div><strong>Tenant ID:</strong> <%= client.tenantId %></div>
+    <div><strong>Created At:</strong> <%= client.createdAt || 'N/A' %></div>
+  </div>
+
+  <div class="flex justify-center mt-6">
+    <a href="/api/v1/tenant/clients" class="px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700">Back to Clients</a>
+  </div>
+</div>
+
+</body>
+</html>

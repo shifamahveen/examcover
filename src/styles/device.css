@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.video-container {
+    position: relative;
+    margin: 20px auto;
+}
+video, canvas {
+    width: 100%;
+    max-width: 640px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #45a049;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.detection-log {
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+.detection-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.stat-box {
+    text-align: center;
+    padding: 10px;
+    background-color: #e9f5e9;
+    border-radius: 4px;
+    width: 30%;
+}
+.stat-box h3 {
+    margin-top: 0;
+}

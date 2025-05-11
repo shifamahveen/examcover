@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Assessment Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="styles/test.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Secondary Navigation Sidebar - Modified for tablet/mobile -->
+        <div id="questionSidebar" class="w-64 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto transition-all duration-300 ease-in-out">
+            <div class="p-4 border-b border-gray-200">
+                <h1 class="text-lg font-semibold text-gray-800 lg:block hidden">Online Assessment</h1>
+                <div class="flex items-center mt-2 text-sm text-gray-500">
+                    <i class="far fa-clock mr-1"></i>
+                    <span class="lg:inline hidden">Time Remaining: </span><span class="font-medium text-gray-700" id="timer">45:22</span>
+                </div>
+                <div class="flex space-x-2 items-center my-3 mx-1">
+                      <button id="logout" class="border text-gray-500 border-gray-500 hover:bg-gray-600 hover:text-white text-xs font-medium py-2 px-4 rounded-md duration-300 rounded hover:cursor-pointer">Log Out</button>
+                      <button id="endTest" class="border text-red-500 border-red-500 hover:bg-red-700 hover:text-white text-xs font-medium py-2 px-4 rounded-md duration-300 rounded hover:cursor-pointer">End Test</button>
+                </div>
+            </div>
+            
+            <div id="trustScore" class="m-4 p-3 border rounded-lg bg-gray-100 text-sm text-gray-700"></div>
+
+            <div class="p-4 border-b border-gray-200 bg-gray-50 lg:flex hidden items-center">
+                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">
+                    JD
+                </div>
+                <div class="ml-2">
+                    <p class="text-sm font-medium text-gray-800">Jane Doe</p>
+                    <p class="text-xs text-gray-500">ID: STU20250412</p>
+                </div>
+            </div>
+            <div class="p-4">
+                <div class="text-xs uppercase font-semibold text-gray-500 tracking-wider mb-2 lg:block hidden">Questions</div>
+                <div class="space-y-1 h-96 overflow-y-auto">
+                    <!-- Question Navigation Items - Modified for tablet view -->
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs font-medium lg:mr-3">
+                            1
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 1</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xs font-medium lg:mr-3">
+                            2
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 2</span>
+                    </div>
+                    <div class="nav-item active flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-medium lg:mr-3">
+                            3
+                        </div>
+                        <span class="text-sm font-medium text-gray-800 lg:inline hidden">Question 3</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            4
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 4</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            5
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 5</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 text-xs font-medium lg:mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                              </svg>
+                              
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 6</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            7
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 7</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            8
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 8</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            9
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 9</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            10
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 10</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            10
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 10</span>
+                    </div>
+                    <div class="nav-item flex items-center py-2 px-3 rounded-md cursor-pointer hover:bg-gray-100">
+                        <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs font-medium lg:mr-3">
+                            10
+                        </div>
+                        <span class="text-sm text-gray-700 lg:inline hidden">Question 10</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 mt-auto border-t border-gray-200">
+                <button class="w-full bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-4 rounded-md">
+                    <span class="lg:inline hidden">Submit Test</span>
+                    <i class="fas fa-paper-plane lg:hidden"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mainContent" class="flex-1 flex flex-col overflow-hidden transition-all duration-300 relative ease-in-out">
+            <!-- Toggle Button -->
+            <div class="p-2 bg-gray-100 border-b border-gray-300 flex items-center">
+                <button onclick="toggleSidebar()" id="sidebarToggleBtn"
+                    class="group bg-amber-200 hover:bg-yellow-200 duration-300 rounded shadow absolute top-1/2 transform -translate-x-2 p-2 py-4 hover:cursor-pointer">
+                    
+                    <svg id="sidebarIcon" class="w-6" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        transform="matrix(-1, 0, 0, 1, 0, 0)">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3.67937 12C3.67937 7.41291 7.39792 3.69435 11.985 3.69435C13.3309 3.69435 14.5997 4.01384 15.722 4.58034C16.5399 4.99318 17.2807 5.53762 17.9164 6.18608C18.2451 6.52131 18.7832 6.52666 19.1185 6.19803C19.4537 5.8694 19.459 5.33123 19.1304 4.996C18.3657 4.21594 17.4739 3.56033 16.488 3.06271C15.1336 2.37904 13.603 1.99435 11.985 1.99435C6.45904 1.99435 1.97937 6.47402 1.97937 12C1.97937 17.5259 6.45904 22.0056 11.985 22.0056C13.603 22.0056 15.1336 21.6209 16.488 20.9372C17.3327 20.5109 18.1083 19.9686 18.794 19.3314C19.138 19.0119 19.1577 18.4741 18.8382 18.1302C18.5186 17.7862 17.9808 17.7665 17.6369 18.086C17.0669 18.6156 16.4227 19.0659 15.722 19.4196C14.5997 19.9861 13.3309 20.3056 11.985 20.3056C7.39792 20.3056 3.67937 16.587 3.67937 12ZM17.6555 14.1456L18.9512 12.85H13.6788C13.2093 12.85 12.8288 12.4694 12.8288 12C12.8288 11.5305 13.2093 11.15 13.6788 11.15H18.9512L17.6555 9.8543C17.3236 9.52236 17.3236 8.98417 17.6555 8.65222C17.9875 8.32028 18.5257 8.32028 18.8576 8.65222L21.2806 11.0752C21.7913 11.5859 21.7913 12.414 21.2806 12.9247L18.8576 15.3477C18.5257 15.6796 17.9875 15.6796 17.6555 15.3477C17.3236 15.0157 17.3236 14.4775 17.6555 14.1456Z"
+                            fill="#1C1C1C" />
+                    </svg>
+
+                    <span id="sidebarTooltip"
+                    class="absolute left-full ml-2 top-1/2 -translate-y-1/2 bg-black text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-50">
+                        Collapse Sidebar
+                    </span>
+                </button>
+            </div>
+           
+            <!-- Main Content Body -->
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+                <!-- Content Split: Left for Question, Right for Proctoring -->
+                <div class="flex flex-wrap -mx-3">
+                    <!-- Question Section -->
+                    <div id="questionSection" class="w-full lg:w-9/12 px-3 mb-6">
+                        <!-- Question Card -->
+                        <div class="bg-question-card rounded-xl custom-shadow  p-4 sm:p-6 mb-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="flex items-center">
+                                    <div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-medium mr-3">
+                                        Q3
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-800">Multiple Choice Question</h3>
+                                        <p class="text-sm text-gray-500">1 Mark</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="flag-question-7" data-question="7" class="text-yellow-500 hover:text-yellow-600 flex space-x-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                                          </svg>
+                                          
+                                        <span class="hidden sm:inline">Flag</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <div class="flex justify-between items-center space-x-4 mb-6">
+                                    <p class="text-gray-800 text-base">Which of the following data structures uses LIFO (Last In First Out) principle?</p>
+                                
+                                    <button id="clear-selection-7" class="p-2 rounded-full hover:bg-rose-50 duration-300 hover:cursor-pointer">
+                                        <svg class="w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M11.4096 5.50506C13.0796 3.83502 13.9146 3 14.9522 3C15.9899 3 16.8249 3.83502 18.4949 5.50506C20.165 7.1751 21 8.01013 21 9.04776C21 10.0854 20.165 10.9204 18.4949 12.5904L14.3017 16.7837L7.21634 9.69828L11.4096 5.50506Z" fill="#d14b29"></path> <path d="M6.1557 10.759L13.2411 17.8443L12.5904 18.4949C12.2127 18.8727 11.8777 19.2077 11.5734 19.5H21C21.4142 19.5 21.75 19.8358 21.75 20.25C21.75 20.6642 21.4142 21 21 21H9C7.98423 20.9747 7.1494 20.1393 5.50506 18.4949C3.83502 16.8249 3 15.9899 3 14.9522C3 13.9146 3.83502 13.0796 5.50506 11.4096L6.1557 10.759Z" fill="#d14b29"></path> </g></svg>
+                                    </button>    
+                                </div>
+                                
+                                <!-- MCQ Options with Modern Design -->
+                                <div class="space-y-3">
+                                    <label class="block">
+                                        <div class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-200 cursor-pointer transition-colors">
+                                            <input type="radio" name="question" class="h-5 w-5 text-blue-600 border-gray-300 focus:ring-blue-500"  data-question="7" data-option="Queue">
+                                            <div class="ml-3">
+                                                <span class="text-gray-800">Queue</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="block">
+                                        <div class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-200 cursor-pointer transition-colors">
+                                            <input type="radio" name="question" class="h-5 w-5 text-blue-600 border-gray-300 focus:ring-blue-500"  data-question="7" data-option="Stack">
+                                            <div class="ml-3">
+                                                <span class="text-gray-800">Stack</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="block">
+                                        <div class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-200 cursor-pointer transition-colors">
+                                            <input type="radio" name="question" class="h-5 w-5 text-blue-600 border-gray-300 focus:ring-blue-500"  data-question="7" data-option="Linked List">
+                                            <div class="ml-3">
+                                                <span class="text-gray-800">Linked List</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <label class="block">
+                                        <div class="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-200 cursor-pointer transition-colors">
+                                            <input type="radio" name="question" class="h-5 w-5 text-blue-600 border-gray-300 focus:ring-blue-500"  data-question="7" data-option="Binary Tree">
+                                            <div class="ml-3">
+                                                <span class="text-gray-800">Binary Tree</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Question Navigation Footer -->
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                                <button class="flex items-center justify-center px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors text-sm font-medium">
+                                    <i class="fas fa-arrow-left mr-2"></i> <span class=" xs:inline">Previous</span>
+                                </button>
+                                <div class="text-sm text-gray-500 hidden sm:block">Question 3 of 10</div>
+                                <button class="flex items-center justify-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-medium">
+                                    <span class=" xs:inline">Next</span> <i class="fas fa-arrow-right ml-0 xs:ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Keyboard Shortcuts -->
+                        <div class="bg-white rounded-xl custom-shadow p-4 hidden sm:block">
+                            <h4 class="text-sm font-medium text-gray-700 mb-3">Keyboard Shortcuts</h4>
+                            <div class="flex flex-wrap">
+                                <div class="mr-4 mb-2 flex items-center">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded bg-gray-100 text-gray-700 text-xs font-medium mr-1">N</span>
+                                    <span class="text-sm text-gray-600">Next</span>
+                                </div>
+                                <div class="mr-4 mb-2 flex items-center">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded bg-gray-100 text-gray-700 text-xs font-medium mr-1">P</span>
+                                    <span class="text-sm text-gray-600">Previous</span>
+                                </div>
+                                <div id="flag-question-7" data-question="7" class="mr-4 mb-2 flex items-center cursor-pointer">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded bg-gray-100 text-gray-700 text-xs font-medium mr-1">F</span>
+                                    <span class="text-sm text-gray-600">Flag</span>
+                                  </div>
+                                  
+                                <div class="mr-4 mb-2 flex items-center">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded bg-gray-100 text-gray-700 text-xs font-medium mr-1">S</span>
+                                    <span class="text-sm text-gray-600">Submit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proctoring Section -->
+                    <div id="proctoringSection" class="w-full lg:w-3/12 px-3 hidden lg:block">
+                       <!-- Live Proctoring Panel -->
+                        <div class="bg-white rounded-xl custom-shadow overflow-hidden">
+                            <div class="p-3 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
+                                <h3 class="text-sm font-semibold text-gray-700">Live Proctoring</h3>
+
+                                <button id="fullscreenBtn" class="p-2 px-4 rounded-lg hover:bg-gray-200 duration-300 hover:cursor-pointer transition">
+                                    <svg class="w-6" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-fullscreen" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>1244</title> <defs> </defs> <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g transform="translate(1.000000, 3.000000)" fill="#434343"> <rect x="2" y="2" width="12" height="8" class="si-glyph-fill"> </rect> <path d="M2.918,11.938 L0,11.938 L0,9.062 L1,9.062 L1,11.042 L2.918,11.042 L2.918,11.938 Z" class="si-glyph-fill"> </path> <path d="M16,11.938 L13.062,11.938 L13.062,11.042 L15,11.042 L15,9.058 L16,9.058 L16,11.938 Z" class="si-glyph-fill"> </path> <path d="M16,2.917 L15,2.917 L15,0.967 L13.057,0.967 L13.057,0.021 L16,0.021 L16,2.917 Z" class="si-glyph-fill"> </path> <path d="M1,2.938 L0,2.938 L0,0 L2.938,0 L2.938,0.938 L1,0.938 L1,2.938 Z" class="si-glyph-fill"> </path> </g> </g> </g></svg>
+                                  </button>
+                            </div>
+
+                            <!-- Video Feed & Overlay -->
+                            <div class="relative bg-black aspect-video">
+                                <!-- Top-left ExamCover watermark -->
+                                <div class="absolute top-2 left-2 bg-gray-50/25 text-sm text-gray-800 px-2 py-1 rounded pointer-events-none select-none text-xs">
+                                    ExamCover
+                                </div>
+
+                                <!-- Top-right timestamp watermark -->
+                                <div id="timestamp" class="absolute top-2 right-2 bg-gray-50/25 text-gray-800 px-2 py-1 rounded pointer-events-none select-none text-xs">
+                                    00:00:00
+                                </div>
+
+                                <video id="video" class="w-full h-full object-cover" autoplay muted></video>
+                                <canvas id="overlay" class="absolute top-0 left-0 w-full h-full"></canvas>
+                                <canvas id="recordingCanvas" style="display: none;"></canvas>
+                                 <div class="absolute bottom-3 right-3 bg-red-600 bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+                                    <i class="fas fa-video"></i> Live
+                                </div>
+                                <canvas id="canvas" class="absolute top-0 left-0 z-20"></canvas>
+
+                            </div>
+
+                            <!-- System Status -->
+                            <div class="p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium text-gray-700">System Check</span>
+                                    </div>
+                                    <span class="text-xs text-green-600 font-medium">All Systems Normal</span>
+                                </div>
+
+                                <!-- Status Items -->
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between items-center py-1 border-b border-gray-100">
+                                        <span class="text-gray-600">Face Detection</span>
+                                        <span id="faceCount">0</span> 
+                                    </div>
+                                    <div class="flex justify-between items-center py-1 border-b border-gray-100">
+                                        <span class="text-gray-600">Audio Analysis</span>
+                                        <span class="text-green-600" id="audioStatus">Normal</span>
+                                    </div>
+                                    <div id="transcript" class="mt-2 text-gray-700"></div>
+
+                                    <div class="flex justify-between items-center py-1 border-b border-gray-100">
+                                        <span class="text-gray-600">Mouse Tracking</span>
+                                        <span class="text-green-600">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Summary -->
+                        <div class="bg-white rounded-xl custom-shadow mt-6 p-4">
+                            <h3 class="text-sm font-semibold text-gray-700 mb-3">Your Progress</h3>
+                            <div class="mb-2">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-600">
+                                <span>3/10 Questions</span>
+                                <span>30% Complete</span>
+                            </div>
+                            
+                            <!-- Question Status Summary -->
+                            <div class="flex items-center justify-between mt-4 text-sm">
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-green-500 mr-1"></div>
+                                    <span class="text-gray-600">Answered: 2</span>
+                                </div>
+                              
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-gray-300 mr-1"></div>
+                                    <span class="text-gray-600">Remaining: 7</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mt-4 text-sm">
+                               
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500 mr-1"></div>
+                                    <span class="text-gray-600">Flagged: 1</span>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Question Sidebar Overlay -->
+    <div id="questionSidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden" style="display: none;"></div>
+    <script src="script/test.js"></script>
+    <script defer src="script/face-api.min.js"></script>
+    <script defer src="script/test2/speech-test.js"></script>  
+    <script type="module" src="./script/test2/log.js"></script>  
+    <script type="module" src="./script/test2/face-test.js"></script>    
+    <script>
+    fetch('http://localhost:3001/api/auth/auth-check', { credentials: 'include' })
+    .then(res => {
+        if (!res.ok) window.location.href = 'login.html';
+    });
+    </script>
+    <script src="./utils/auth.js"></script>
+    <script>
+        checkAuth();
+        document.getElementById("logout").addEventListener("click", () => {
+        localStorage.removeItem("loggedIn");
+        window.location.href = "auth/login.html";
+        });
+    </script> 
+</body>
+</html>

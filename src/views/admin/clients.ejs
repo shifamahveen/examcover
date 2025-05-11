@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clients</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white min-h-screen">
+
+  <div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold text-teal-400 mb-6">Clients for Tenant <%= tenantId %></h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% clients.forEach(client => { %>
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg hover:shadow-2xl">
+          <h3 class="text-xl font-semibold text-teal-400"><%= client.name %></h3>
+          <p class="text-teal-300"><%= client.email %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+</body>
+</html>

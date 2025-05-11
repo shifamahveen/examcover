@@ -1,0 +1,36 @@
+{
+  "trustScore": 9.25,
+  "trustLabel": "Low Trust",
+  "violations": [
+    {
+      "type": "Speech",
+      "number": 1,
+      "negativeScore": 1
+    },
+    {
+      "type": "Mouse Off-Screen",
+      "number": 1,
+      "negativeScore": 0.75
+    },
+    {
+      "type": "Fullscreen Exit",
+      "number": 1,
+      "negativeScore": 0.5
+    },
+    {
+      "type": "Face Missing",
+      "number": 1,
+      "negativeScore": 2
+    },
+    {
+      "type": "Copy Action",
+      "number": 1,
+      "negativeScore": 2
+    },
+    {
+      "type": "Multiple Faces",
+      "number": 1,
+      "negativeScore": 3
+    }
+  ]
+}
