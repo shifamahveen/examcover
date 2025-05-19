@@ -1,3 +1,5 @@
+import { createLogger } from '@voilajs/appkit/logging';
+
 const video = document.getElementById('video');
 const overlay = document.getElementById('overlay');
 const ctx = overlay.getContext('2d');
@@ -6,6 +8,7 @@ const audioStatus = document.getElementById('audioStatus');
 const recordingCanvas = document.getElementById('recordingCanvas');
 const recordingCtx = recordingCanvas.getContext('2d');
 
+const logger = createLogger();
 let stream = null;
 let detectInterval = null;
 let mediaRecorder;
@@ -71,7 +74,6 @@ function updateTrustDisplay() {
 
   updateLogFile(score, trustLabel);  
 }
-
 
 function logEvent(message) {
   const currentTimestamp = new Date().toISOString();
@@ -339,7 +341,6 @@ function startSpeechRecognition() {
   recognition.start();
 }
 
-
 function startSnapshotCapture() {
   setInterval(async () => {
     if (video.readyState === 4) {
@@ -371,7 +372,7 @@ function startSnapshotCapture() {
       .then(data => console.log(data))
       .catch(error => console.error('Error saving snapshot:', error));
 
-      logEvent('Snapshot captured');
+      logger.info('Snapshot captured');
     }
   }, 5000);
 }

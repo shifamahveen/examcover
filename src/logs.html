@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs Viewer</title>
+  <script defer src="logs.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+  <div class="max-w-4xl mx-auto bg-white rounded shadow">
+    <div class="border-b flex">
+      <button class="tab-button p-4 font-semibold" data-tab="snapshots">Snapshots</button>
+      <button class="tab-button p-4 font-semibold" data-tab="videos">Videos</button>
+      <button class="tab-button p-4 font-semibold" data-tab="logs">Logs</button>
+    </div>
+
+    <div id="snapshots" class="tab-content p-4 hidden"></div>
+    <div id="videos" class="tab-content p-4 hidden"></div>
+    <div id="logs" class="tab-content p-4 hidden">
+      <p class="text-gray-600">Log viewing coming soon.</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="mediaModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded shadow w-3/4 max-w-2xl text-center block mx-auto">
+      <button onclick="document.getElementById('mediaModal').classList.add('hidden')" class="absolute top-2 right-4 text-xl font-bold text-white">&times;</button>
+      
+      <div id="mediaContainer"></div>
+    </div>
+  </div>
+</body>
+</html>

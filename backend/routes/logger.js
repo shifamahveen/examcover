@@ -118,7 +118,6 @@ async function logViolation(trustScore, trustLabel, violations) {
     }
   }
   
-
 module.exports = {
   logEvent,
   saveSnapshot,

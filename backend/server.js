@@ -39,6 +39,14 @@ const snapshotDir = path.join(__dirname, 'snapshots');
 const videoDir = path.join(__dirname, 'videos');
 if (!fs.existsSync(snapshotDir)) fs.mkdirSync(snapshotDir);
 if (!fs.existsSync(videoDir)) fs.mkdirSync(videoDir);
+app.use('/snapshots', express.static(snapshotDir));
+app.use('/videos', express.static(videoDir));
+
+app.get('/logs', (req, res) => {
+  const snapshots = fs.readdirSync(snapshotDir).filter(f => f.endsWith('.jpg'));
+  const videos = fs.readdirSync(videoDir).filter(f => f.endsWith('.webm') || f.endsWith('.mp4'));
+  res.json({ snapshots, videos });
+});
 
 // Logging endpoints
 app.post('/log-event', (req, res) => {
@@ -49,6 +57,18 @@ app.post('/log-event', (req, res) => {
   } else {
     res.status(400).json({ error: 'Log message is required' });
   }
+});
+
+const logPath = path.join(__dirname, '../logs/activity.log');
+
+app.get('/logs/activity', (req, res) => {
+  fs.readFile(logPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading log file:', err);
+      return res.status(500).send('Could not read log file');
+    }
+    res.send(data);
+  });
 });
 
 // Save snapshot
