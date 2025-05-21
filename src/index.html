@@ -365,22 +365,9 @@
     <div id="questionSidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden" style="display: none;"></div>
     <script src="script/test.js"></script>
     <script defer src="script/face-api.min.js"></script>
-    <script defer src="script/test2/speech-test.js"></script>  
-    <script type="module" src="./script/test2/log.js"></script>  
-    <script type="module" src="./script/test2/face-test.js"></script>    
-    <script src="./utils/auth.js"></script>
-    <script>
-        fetch('http://localhost:3001/api/auth/auth-check', { credentials: 'include' })
-        .then(res => {
-            if (!res.ok) window.location.href = 'login.html';
-        });
-    </script>
-    <script>
-        checkAuth();
-        document.getElementById("logout").addEventListener("click", () => {
-        localStorage.removeItem("loggedIn");
-        window.location.href = "auth/login.html";
-        });
-    </script> 
+    <script defer src="script/speech-test.js"></script>  
+    <script type="module" src="./script/log.js"></script>  
+    <script type="module" src="./script/face-test.js"></script>  
+    <script src="./script/auth.js"></script>
 </body>
 </html>
