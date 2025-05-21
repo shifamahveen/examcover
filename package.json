@@ -10,7 +10,6 @@
     "@tauri-apps/cli": "^2"
   },
   "dependencies": {
-    "@voilajsx/appkit": "github:voilajsx/appkit",
     "concurrently": "^9.1.2"
   }
 }

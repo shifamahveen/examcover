@@ -368,13 +368,13 @@
     <script defer src="script/test2/speech-test.js"></script>  
     <script type="module" src="./script/test2/log.js"></script>  
     <script type="module" src="./script/test2/face-test.js"></script>    
-    <script>
-    fetch('http://localhost:3001/api/auth/auth-check', { credentials: 'include' })
-    .then(res => {
-        if (!res.ok) window.location.href = 'login.html';
-    });
-    </script>
     <script src="./utils/auth.js"></script>
+    <script>
+        fetch('http://localhost:3001/api/auth/auth-check', { credentials: 'include' })
+        .then(res => {
+            if (!res.ok) window.location.href = 'login.html';
+        });
+    </script>
     <script>
         checkAuth();
         document.getElementById("logout").addEventListener("click", () => {

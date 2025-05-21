@@ -24,23 +24,5 @@ dist-ssr
 *.sw?
 
 src/.env
-backend/snapshots
-backend/videos
-
-# examcover
-#     - .vscode
-#     - backend
-#         - config/db.js
-#         - node_modules
-#         - snapshots
-#         - videos
-#         - server.js
-#         - routes/logger.js
-#     - logs
-#     - node_modules
-#     - src
-#         - script/test2/face-test.js
-#         - index.html
-#         - package.json
-#     - src_tauri
-#     - package.json
+backend/snapshots/*
+backend/videos/*

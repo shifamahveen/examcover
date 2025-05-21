@@ -4,7 +4,7 @@ const logFilePath = path.join(__dirname, '../../logs/activity.log');
 const trustScoreFilePath = path.join(__dirname, '../../logs/trustScore.json');
 
 let lastLogTimestamp = null;
-const debounceInterval = 1000; // 1 second debounce window
+const debounceInterval = 1000; 
 
 function logEvent(message) {
   const currentTimestamp = new Date().toISOString();
@@ -116,7 +116,7 @@ async function logViolation(trustScore, trustLabel, violations) {
     } catch (error) {
       console.error('Error logging violation:', error);
     }
-  }
+}
   
 module.exports = {
   logEvent,
